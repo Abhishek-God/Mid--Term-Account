@@ -16,10 +16,13 @@ public class AccountTester {
         for the given bank*/ 
         Account[] ac=new Account[5];
         
-        System.out.println("Please enter the amount by which you want to open an account:");
-        
         Scanner sc=new Scanner(System.in);
-        double bal=sc.nextDouble();
+        double bal = 0;
+            do{
+                System.out.println("Please enter the amount by which you want to open an account:");
+                System.out.println("Minimum amount is 50");
+                bal = sc.nextDouble();
+               } while(bal<50);
         
         System.out.println("Please enter the unique user name:");
         sc.nextLine();
@@ -28,7 +31,9 @@ public class AccountTester {
         
         Account a=new Account(bal,user);
        
-        System.out.println("The balance is: "+a.balance);  
-        System.out.println("The InterestRate per month is "+a.interestRate);
+        System.out.println("The balance is: "+ a.getBalance());  
+        System.out.println("The InterestRate per month is "+a.getInterestRate());
+        System.out.println("The Amount after interest is "+a.balanceInterest());
+        
     }
 }
